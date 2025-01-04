@@ -4,7 +4,9 @@ const { VueLoaderPlugin } = require("vue-loader");
 const Dotenv = require('dotenv-webpack');
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8084/",
+    publicPath: argv.mode === "development"
+      ? "http://localhost:8084/"
+      : "https://federated-email-list.vercel.app/",
   },
 
   resolve: {
